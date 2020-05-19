@@ -1,0 +1,47 @@
+https://practice.geeksforgeeks.org/problems/maximum-difference-1/0
+
+Given an array of size n with possibly duplicate elements. Consider differences between first and 
+last occurrences of all elements and find the maximum such difference.  
+Note that if any element appears only once, then the difference for the element is 0.
+
+
+
+
+
+
+
+
+
+
+
+#include<bits/stdc++.h>
+#define int long long int 
+#define TRY_HARD ios_base::sync_with_stdio(false);  cin.tie(NULL);  cout.tie(NULL);
+using namespace std;
+
+
+signed main()
+ {
+	TRY_HARD ;
+	int t ;
+	cin >> t ;
+	while ( t-- )
+	{
+	    int n , ans = INT_MIN ;
+	    cin >> n ;
+	    int a[n] ;
+	    map < int , vector < int > > m ;
+	    for ( int i = 0 ; i < n ; i++ )
+	    {
+	        cin >> a[i] ;
+	        m[a[i]].push_back ( i ) ;
+	    }
+	    for ( auto it = m.begin() ; it != m.end() ; it++ )
+	    {
+	        int k = abs( it -> second[0] - it -> second[it->second.size()-1]) ;
+	        ans = max ( ans , k ) ;
+	    }
+	    cout << ans << endl ;
+	}
+	
+}
