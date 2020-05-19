@@ -1,0 +1,45 @@
+https://practice.geeksforgeeks.org/problems/multimap-operations/1
+
+
+
+
+multimap<int,int> multimapInsert(int arr[],int n)
+{
+    multimap<int,int>mp;
+    for ( int i = 0 ; i < n ; i++ )
+    {
+       
+        mp.insert ( pair < int , int > ( arr[i] , i ) ) ;
+    
+    }
+    
+    
+    return mp;
+    
+}
+
+
+void multimapDisplay(multimap<int,int>mp)
+{
+    for ( auto it = mp.begin() ; it != mp.end() ; it++ )
+    {
+        cout << it -> first  << " " << it -> second << endl ;
+    }
+
+}
+
+
+void multimapErase(multimap<int,int>&mp,int x)
+{
+   auto it = mp.find ( x ) ;
+   if ( it != mp.end() )
+   {
+       mp.erase ( x ) ;
+       cout<<"erased "<<x;
+   }
+   else
+    cout<<"not found";
+    
+    
+    cout<<endl;
+}
