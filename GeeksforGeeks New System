@@ -1,0 +1,49 @@
+https://practice.geeksforgeeks.org/problems/geeksforgeeks-new-system/0
+
+GeeksforGeeks New System
+
+GeeksforGeeks developed its new system to make sure no two usernames are same. 
+So, they selected you as a developer to develop the system. They have set some rules to do the same.
+Rules are pretty simple: 
+If you see the same username that already exists, just add a number at the end of that username 
+(number starting from 1), else you will toast "Verified".
+
+
+
+#include<bits/stdc++.h>
+#define int long long int 
+#define TRY_HARD ios_base::sync_with_stdio(false);  cin.tie(NULL);  cout.tie(NULL);
+using namespace std;
+
+
+
+signed main()
+ {
+	TRY_HARD ;
+	int t ;
+	cin >> t ;
+	while ( t-- )
+	{
+	    int n ;
+	    cin >> n ;
+	    string s ;
+	    map < string , int >  m ;
+	    for ( int i = 0 ; i < n ; i++ )
+	    {
+	        cin >> s ;
+	        if ( m[s] == 0 )
+	        {
+	            cout << "Verified " ;
+	            m[s]++ ;
+	        }
+	        else
+	        {
+	            cout << s << m[s] << " " ;
+	            m[s]++ ;
+	        }
+	        
+	    }
+	    cout << endl ;
+	}
+	
+}
