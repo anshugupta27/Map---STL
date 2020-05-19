@@ -1,0 +1,42 @@
+https://practice.geeksforgeeks.org/problems/smaller-on-left2036/0
+
+For each testcase, print the array which contains greatest smaller element on left of every corresponding element in the array.
+For the element whose smaller on left doesn't exists, consider -1 as greatest smaller.
+
+
+
+#include<bits/stdc++.h>
+#define int long long int 
+#define TRY_HARD ios_base::sync_with_stdio(false);  cin.tie(NULL);  cout.tie(NULL);
+using namespace std;
+
+
+
+signed main()
+ {
+	TRY_HARD ;
+	int t ;
+	cin >> t ;
+	while ( t-- )
+	{
+	    int n ;
+	    cin >> n ;
+	    int a[n+1] ;
+	    a[0] = INT_MAX ;
+	    for ( int i = 1 ; i <= n ; i++ )
+	    cin >> a[i] ;
+	    map < int , int > m ;
+	    for ( int i = 1 ; i <= n ; i++ )
+	    {
+	        m[a[i]]++ ;
+	        if ( a[i-1]+1 == a[i] )
+	        continue ;
+	        else
+	        a[i-1] = -1 ;
+	    }
+	    for ( int i = 0 ; i < n ; i++ )
+	    cout << a[i] << " " ;
+	    cout << endl ;
+	}
+	
+}
